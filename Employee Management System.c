@@ -10,7 +10,6 @@ struct employee {
     struct employee* next;
 };
 
-// Functions going to be used
 void addEmployee(struct employee** head);
 void deleteEmployee(struct employee** head, const char* name);
 void searchEmployee(struct employee* head, const char* name);
@@ -42,7 +41,6 @@ int main() {
             displayEmployees(head);
         } else if (choice == 5) {
             break;
-            // Exit the program
         } else {
             printf("Invalid choice. Please try again.\n");}
     } while (choice != 5);
@@ -57,10 +55,8 @@ int main() {
 
 void addEmployee(struct employee** head) {
     struct employee* newEmployee = (struct employee*)malloc(sizeof(struct employee));
-    // Input employee information
     printf("Enter employee name: ");
     scanf("%s", newEmployee->name);
-    // Check for duplicate names
     if (checkDuplicate(*head, newEmployee->name)) {
         printf("Error: Employee with the same name already exists.\n");
         free(newEmployee);
@@ -101,7 +97,6 @@ void deleteEmployee(struct employee** head, const char* name) {
 
 void searchEmployee(struct employee* head, const char* name) {
     struct employee* current = head;
-    // Search the list
     while (current != NULL && strcmp(current->name, name) != 0) {
         current = current->next;
     }
@@ -146,7 +141,6 @@ int checkDuplicate(struct employee* head, const char* name) {
 }
 
 void displayMenu(){
-    // Display menu
     printf("\nEmployee Management System Menu:\n");
     printf("1. Add Employee\n");
     printf("2. Delete Employee\n");
